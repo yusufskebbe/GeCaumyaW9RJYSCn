@@ -1,0 +1,17 @@
+import twint
+import nest_asyncio
+nest_asyncio.apply()
+# Configure
+c = twint.Config()
+
+c.Search = "request for startup"
+c.store_json = True
+c.output = "../data/request for startup.json"
+
+# Run
+twint.run.Search(c)
+
+import pandas as pd
+data = pd.read_json ("../data/request for startup.json",lines=True)
+data.shape
+data.head()
